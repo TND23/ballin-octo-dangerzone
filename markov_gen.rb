@@ -23,7 +23,7 @@ class MarkovText
   end
 
   def split_initial
-    @initial_text.split(" ").split(".").split(",")
+    @initial_text.split(" ")
   end
 
   # Read each element, where an element is defined as a sequence of characters seperated by a space or quotation mark
@@ -90,7 +90,7 @@ class MarkovText
     @lump_texts = split_initial
     v = []
     @other_texts.each do |el|
-      v.push el.split(" ").split(".").split(",")
+      v.push el.split(" ")
     end
     @lump_texts +=  v.flatten!
     # @other_texts.map{|text| @lump_texts << text.split(" ")}
@@ -110,7 +110,7 @@ class MarkovText
 end
 
 
-v = MarkovText.new("/../markov_sample_texts/forrest_gump.txt", "/../markov_sample_texts/ace_ventura.txt")
+v = MarkovText.new("../markov_sample_texts/forrest_gump.txt", "../markov_sample_texts/ace_ventura.txt")
 
 v.create_lump_texts
 
